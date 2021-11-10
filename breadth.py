@@ -1,14 +1,17 @@
 graph = {
-  'A' : ['B','C'],
-  'B' : ['D', 'E'],
-  'C' : ['F'],
-  'D' : [],
-  'E' : ['F'],
-  'F' : []
+    'A' : ['B','C','D'],
+    'B' : ['A','H'],
+    'C' : ['A','E','F'],
+    'D' : ['A','G','I'],
+    'E' : ['C','F'],
+    'F' : ['C','E','H','I'],
+    'G' : ['D'],
+    'H' : ['F','B'],
+    'I' : ['F','D']
 }
 
-visited = [] # List to keep track of visited nodes.
-queue = []     #Initialize a queue
+visited = []  
+queue = []    
 
 def bfs(visited, graph, node):
   visited.append(node)
@@ -16,12 +19,11 @@ def bfs(visited, graph, node):
 
   while queue:
     s = queue.pop(0) 
-    print (s, end = " ") 
+    print(s) 
 
     for neighbour in graph[s]:
       if neighbour not in visited:
         visited.append(neighbour)
         queue.append(neighbour)
 
-# Driver Code
 bfs(visited, graph, 'A')
