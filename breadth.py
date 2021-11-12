@@ -1,13 +1,13 @@
 graph = {
     'A' : ['B','C','D'],
-    'B' : ['A','H'],
-    'C' : ['A','E','F'],
-    'D' : ['A','G','I'],
-    'E' : ['C','F'],
-    'F' : ['C','E','H','I'],
-    'G' : ['D'],
-    'H' : ['F','B'],
-    'I' : ['F','D']
+    'B' : ['G'],
+    'C' : ['E','F'],
+    'D' : ['G','I'],
+    'E' : [],
+    'F' : ['H','I'],
+    'G' : [],
+    'H' : [],
+    'I' : []
 }
 
 visited = []  
@@ -19,7 +19,7 @@ def bfs(visited, graph, node):
 
   while queue:
     s = queue.pop(0) 
-    print(s) 
+    print(s, end = " ") 
 
     for neighbour in graph[s]:
       if neighbour not in visited:
