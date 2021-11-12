@@ -1,6 +1,6 @@
 graph = {
     'A' : ['B','C','D'],
-    'B' : ['H'],
+    'B' : [],
     'C' : ['E','F'],
     'D' : ['G','I'],
     'E' : ['F'],
@@ -14,7 +14,7 @@ visited = []
 
 def dfs(visited, graph, node):
     if node not in visited:
-        print(node)
+        print(node, end = " ")
         visited.append(node)
 
         for neighbour in graph[node]:
