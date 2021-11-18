@@ -1,3 +1,6 @@
+import time
+start_time = time.perf_counter()
+
 graph = {
     'A' : ['B','C'],            'N' : ['Y','Z'],      
     'B' : ['D'],                'O' : ['P','Q'],    
@@ -17,17 +20,22 @@ graph = {
 visited = []  
 queue = []    
 
-def bfs(visited, graph, node):
+def bfs(visited, graph, node, target):
   visited.append(node)
   queue.append(node)
 
   while queue:
+    time.sleep(0.1)
     s = queue.pop(0) 
     print(s, end = " ") 
+
+    if s == target:
+      print('/n')
+      print(time.perf_counter() - start_time)
 
     for neighbour in graph[s]:
       if neighbour not in visited:
         visited.append(neighbour)
         queue.append(neighbour)
 
-bfs(visited, graph, 'A')
+bfs(visited, graph, 'A', 'X')
