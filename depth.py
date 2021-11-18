@@ -1,3 +1,6 @@
+import time
+start_time = time.perf_counter()
+
 graph = {
     'A' : ['B','C'],            'N' : ['Y','Z'],      
     'B' : ['D'],                'O' : ['P','Q'],    
@@ -16,12 +19,18 @@ graph = {
 
 visited = [] 
 
-def dfs(visited, graph, node):
+def dfs(visited, graph, node, target):
     if node not in visited:
+        time.sleep(0.1)
         print(node, end = " ")
         visited.append(node)
+        if node == target:
+            print('/n')
+            print(time.perf_counter() - start_time)
 
         for neighbour in graph[node]:
-            dfs(visited, graph, neighbour)
+            dfs(visited, graph, neighbour, target)
 
-dfs(visited, graph, 'A')
+dfs(visited, graph, 'A', 'X')
+
+
